@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Conference Registration</title>
+
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    /* use the google font on the whole page */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4 mb-5">
+
+  <h1>Conference Registration</h1>
+  <p>Fill out the form to register. Everything is required except special requests.</p>
+
+  <form>
+
+    <!-- name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" id="name" name="name" class="form-control" maxlength="70" required>
+    </div>
+
+    <!-- password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required>
+    </div>
+
+    <!-- email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+
+    <!-- t-shirt size -->
+    <div class="mb-3">
+      <label for="tshirt" class="form-label">T-Shirt Size</label>
+      <select id="tshirt" name="tshirt" class="form-select" required>
+        <option value="" disabled selected>Select a size</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div>
+
+    <!-- date of birth -->
+    <div class="mb-3">
+      <label for="dob" class="form-label">Date of Birth</label>
+      <input type="date" id="dob" name="dob" class="form-control" required>
+    </div>
+
+    <!-- email updates, same name makes them work as radio buttons -->
+    <div class="mb-3">
+      <p class="mb-1">Receive email updates from conference sponsors?</p>
+
+      <div class="form-check">
+        <input type="radio" id="updates-yes" name="updates" value="yes" class="form-check-input" required>
+        <label for="updates-yes" class="form-check-label">Yes</label>
+      </div>
+
+      <div class="form-check">
+        <input type="radio" id="updates-no" name="updates" value="no" class="form-check-input" required>
+        <label for="updates-no" class="form-check-label">No</label>
+      </div>
+    </div>
+
+    <!-- sessions -->
+    <div class="mb-3">
+      <p class="mb-1">Choose sessions</p>
+
+      <div class="form-check">
+        <input type="checkbox" id="morning" name="morning" value="morning" class="form-check-input">
+        <label for="morning" class="form-check-label">Morning session</label>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" id="afternoon" name="afternoon" value="afternoon" class="form-check-input">
+        <label for="afternoon" class="form-check-label">Afternoon session</label>
+      </div>
+    </div>
+
+    <!-- special requests, not required -->
+    <div class="mb-3">
+      <label for="requests" class="form-label">Special Requests</label>
+      <textarea id="requests" name="requests" class="form-control" rows="7" cols="70"></textarea>
+    </div>
+
+    <!-- submit button -->
+    <input type="submit" value="Submit" class="btn btn-primary">
+
+  </form>
+
+</div>
+
+</body>
+</html>
