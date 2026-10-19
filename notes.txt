@@ -1,0 +1,13 @@
+Part 4b: File and folder organization
+
+How I organize my school work:
+I have a section for each class on my github, with each assignment in each section. For this class I'll do that late.r 
+
+Naming conventions:
+I use short to the point names with no spaces, like favoritefood.html. It helps me find my work and helps me remember what it is.
+
+Programmer naming rules:
+Characters like / \ " < > and spaces can break file paths and stop images or links from loading. I stick to letters and dashes if I can.
+
+Case sensitive?
+Sometimes. Some systems treat Image.jpg and image.jpg as different files, so I try to make sure to match names exactly. 
