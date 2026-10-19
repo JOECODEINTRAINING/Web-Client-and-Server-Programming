@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather</title>
+</head>
+<body>
+  <h1>Minneapolis Weekly Weather Forecast</h1>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Temperature</th>
+        <th>Icon</th>
+        <th>Detailed Forecast</th>
+        <th>Wind</th>
+      </tr>
+    </thead>
+    <tbody id="weatherBody"></tbody>
+  </table>
+
+  <script>
+    let url = 'https://api.weather.gov/gridpoints/MPX/107,69/forecast'
+    let tableBody = document.querySelector('#weatherBody')
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        let periods = data.properties.periods
+
+        // NEW: remove Saturday and everything after it
+        let saturdayIndex = periods.findIndex(period => period.name.startsWith('Saturday'))
+        if (saturdayIndex !== -1) {
+          periods = periods.slice(0, saturdayIndex)
+        }
+
+        periods.forEach(period => {
+          let row = document.createElement('tr')
+
+          let dayTd = document.createElement('td')
+          dayTd.innerText = period.name
+          row.appendChild(dayTd)
+
+          let tempTd = document.createElement('td')
+          tempTd.innerText = period.temperature + '°' + period.temperatureUnit
+          row.appendChild(tempTd)
+
+          let iconTd = document.createElement('td')
+          let img = document.createElement('img')
+          img.src = period.icon
+          img.alt = period.shortForecast
+          iconTd.appendChild(img)
+          row.appendChild(iconTd)
+
+          let forecastTd = document.createElement('td')
+          forecastTd.innerText = period.detailedForecast
+          row.appendChild(forecastTd)
+
+          let windTd = document.createElement('td')
+          windTd.innerText = period.windSpeed + ', ' + period.windDirection
+          row.appendChild(windTd)
+
+          tableBody.appendChild(row)
+        })
+      })
+      .catch(error => console.log(error))
+  </script>
+</body>
+</html>
